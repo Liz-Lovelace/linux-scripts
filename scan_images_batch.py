@@ -42,7 +42,7 @@ cmd = ['scanimage', f'--format={format}']
 
 enumeration = 0
 while True:
-    name = input('Enter file name (ENUM|anything) ')
+    name = input('Enter file name, the file extension will be added automatically (ENUM|anything) ')
     if name == '' or name == 'enum':
         enumeration += 1
         name = str(enumeration)
