@@ -1,14 +1,16 @@
-#!/usr/bin/xonsh
+#!/usr/bin/python3
 import argparse
+import requests
 
 def send(title, body):
-  $(curl ntfy.sh/lizquickping \
-    --silent \
-    -H @(f'Title: {title}') \
-    -d @(body) 
-  )
+  requests.post('http://ntfy.sh/lizquickping',
+    headers={
+      'Title': title.encode('utf-8'),
+    },
+    data=body.encode('utf-8');,
+  ).raise_for_status()
 
-parser = argparse.ArgumentParser(description='Send a message to the ntfy.sh service')
+parser = argparse.ArgumentParser(description='Send a notification using ntfy.sh')
 
 parser.add_argument(
   '--title', '-t',
