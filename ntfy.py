@@ -7,7 +7,7 @@ def send(title, body):
     headers={
       'Title': title.encode('utf-8'),
     },
-    data=body.encode('utf-8');,
+    data=body.encode('utf-8'),
   ).raise_for_status()
 
 parser = argparse.ArgumentParser(description='Send a notification using ntfy.sh')
