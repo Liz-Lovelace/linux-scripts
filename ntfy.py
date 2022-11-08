@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 import argparse
 import requests
-
+from subprocess import check_output  
 def send(title, body):
+  check_output(['notify-send',
+    '--urgency=critical', 
+    title,
+    body,
+    ], 
+    text=True
+  )
   requests.post('http://ntfy.sh/lizquickping',
     headers={
       'Title': title.encode('utf-8'),
