@@ -1,3 +1,5 @@
 #!/bin/bash
 
-fzf | xargs micro
+FILEPATH=$(fzf)
+echo $FILEPATH
+micro $FILEPATH
