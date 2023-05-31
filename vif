@@ -2,4 +2,4 @@
 
 FILEPATH=$(fzf)
 echo $FILEPATH
-micro $FILEPATH
+vi $FILEPATH
