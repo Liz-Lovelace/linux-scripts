@@ -1,8 +1,16 @@
-#!/bin/bash
-for file in "$@"
-do
-    echo ""
-    echo "### $file"
-    cat "$file"
-done
+#!/usr/bin/env ruby
+require 'clipboard'
+
+output = "# Task\n\n# Code guidelines\n- Don't add ANY comments for any reason, but don't remove existing comments.\n- 2 spaces for indentation\n\n# Files\n"
+ARGV.each do |file|
+  output += "## #{file}\n"
+  File.open(file, "r") do |f|
+    f.each_line { |line| output += line }
+  end
+  output += "\n"
+end
+
+output = output[..-3]
+Clipboard.copy(output)
+puts "\033[92mCopied #{output.length} characters to clipboard :3\033[0m"
 
