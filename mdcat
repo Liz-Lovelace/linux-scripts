@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'clipboard'
 
-output = "# Task\n\n# Code guidelines\n- Don't add ANY comments for any reason, but don't remove existing comments.\n- 2 spaces for indentation\n\n# Files\n"
+output = "# Task\n\n# Code guidelines\n- Don't add ANY comments for any reason, but don't remove existing comments.\n- 2 spaces for indentation\n- Show the necessary changes to files. If you edited a function, output the new function in its entirety. Quickly explain what you're doing outside of the code blocks.\n\n# Files\n"
 ARGV.each do |file|
   output += "## #{file}\n"
   File.open(file, "r") do |f|

@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'clipboard'
+
+output = `tree --gitignore`
+
+Clipboard.copy(output)
+puts "\033[92mCopied #{output.length} characters to clipboard :3\033[0m"
